@@ -1,5 +1,13 @@
+@font-face {
+    font-family: 'BRUSHSCI';
+    src: url('BRUSHSCI.TTF') format('truetype');
+}
+.text, .title, .phrases, .infos {
+    font-family: 'BRUSHSCI', sans-serif; /* Remplacement dans les autres éléments */
+}
+
 body {
-    font-family: 'Raleway', sans-serif;
+    font-family: 'BRUSHSCI';
     background-color: #ffd4d4;
     font-size: 20px;
     transition: 1s;
@@ -37,7 +45,7 @@ body.fade-in {
 
 .gift-desc{
     position: absolute;
-    font-family: 'Brush Script MT', cursive;
+    font-family: 'BRUSHSCI';
     font-size: 16px;
     left: 33%;
     top: 160%;
@@ -97,7 +105,7 @@ body.fade-in {
 }
 .click-moi{
     position: absolute;
-    font-family: 'Brush Script MT', cursive;
+    font-family: 'BRUSHSCI';
     font-size: 24px;
     left: 35%;
     top: 90%;
@@ -158,7 +166,7 @@ body.fade-in {
     margin-top: 20px;
     font-size: 2em;
     color: #7B3436;
-    font-family: 'Brush Script MT', cursive;
+    font-family: 'BRUSHSCI';
 }
 
 
