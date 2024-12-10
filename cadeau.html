@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadeau Alyssia</title>
+    <link rel="stylesheet" href="cadeau.css">
+</head>
+<body>
+    <div id="app">
+        <div 
+            class="gift" 
+            :class="{ dukdik: !open }" 
+            @click="clickGift" 
+            v-if="!clicked">
+            <div class="gift-top" :class="{ boxOpen: open }">
+                <div class="gift-decoration"></div>
+            </div>
+            <div class="gift-box"></div>
+        </div>
+        
+        <div v-if="clicked" class="gift-content">
+            <img v-if="imageUrl2" :src="imageUrl2" class="gift-image2" />
+            <img v-if="imageUrl" :src="imageUrl" class="gift-image" />
+            <h1 v-if="text" class="gift-message">{{ text }}</h1>
+            <p style="font-family: brush script mt;" class="gift-desc">Rêves de vie,<br> studio Port Miou Cassis<br>
+            11/01 - 13/01</p>
+        </div>
+
+        <p v-if="!clicked" class="click-moi" @click="clickGift" >- Clique moi -</p>
+
+    </div>
+
+    
+    <div id="confetti-container"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+        document.body.classList.add('fade-in'); // Applique l'animation à la page en cours
+    });
+
+        new Vue({
+            el: "#app",
+            data: {
+                open: false,
+                clicked: false,
+                text: "On va à Cassis 🙉",
+                imageUrl: "https://www.pariszigzag.fr/wp-content/uploads/2023/10/cassis-ville-paris-zigzag.jpg",
+                imageUrl2: "https://clipart-library.com/images/rijrnK48T.png",
+            },
+            methods: {
+                clickGift() {
+                    if (!this.open) {
+                        this.open = true;
+                        this.launchConfetti();
+                        setTimeout(() => {
+                            this.clicked = true;
+                        }, 1000);
+                    }
+                },
+                launchConfetti() {
+                    const container = document.getElementById("confetti-container");
+                    for (let i = 0; i < 50; i++) {
+                        const confetti = document.createElement("div");
+                        confetti.classList.add("confetti");
+                        confetti.style.left = Math.random() * 100 + "vw";
+                        confetti.style.backgroundColor = `hsl(${Math.random() * 360}, 100%, 50%)`;
+                        confetti.style.animationDelay = Math.random() * 2 + "s";
+                        container.appendChild(confetti);
+                        setTimeout(() => confetti.remove(), 99999);
+                    }
+                },
+                
+            },
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Joyeux noel mon coeur</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="christmas-card">
+        <input id="open" type="checkbox">
+        <label for="open" class="open"></label>
+        <div class="card-front">
+            <div class="christmas-tree"></div>
+            <div class="ribbon"></div>
+            <div class="text"><span style="font-size: 21px; margin-bottom: 20px; position: absolute;
+            top: -10px; left: 22px;">- Appuie pour ouvrir -</span></div>
+            <div class="star"></div>
+            <div class="balls"></div>
+        </div>
+        <div class="card-inside">
+            <div class="title">Pour Alyssia Wolff <br> Joyeux Noël </div>
+            <div class="phrases">
+                Je ne savais pas comment t'offrir ton cadeau car j'ai essayé de faire une carte en papier mais sans trop de succes.
+                Alors j'ai décidé de te coder cela, pour que tu puisses découvrir de manière originale ton cadeau.
+                
+                                <br>Je t'aimes 
+            </div>
+            <div class="infos">
+                <a href="cadeau.html" 
+                style="text-decoration: underline; color: pink;" 
+                onclick="navigateWithTransition(event)">Découvre ton cadeau</a>
+            </div>
+            
+
+        </div>
+    </div>
+    <script>
+        function navigateWithTransition(event) {
+            event.preventDefault(); 
+            document.body.classList.add('fade-out'); 
+    
+            
+            setTimeout(() => {
+                window.location.href = event.target.href;
+            }, 500);
+        }
+    </script>
+    
+</body>
+</html>
